@@ -6,6 +6,7 @@
 
 - add new permissions for bluetooth in iOS
 - add core folder for new projects
+- add custom multiple selector dropdown widget
 
 
 ## [1.0.0] - 2025-05-05
