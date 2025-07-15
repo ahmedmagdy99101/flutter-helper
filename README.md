@@ -1,6 +1,6 @@
 # Flutter Cheat Sheet Repository
 
-A personal, organized collection of Flutter resources, components, bug fixes, package usage, commands, and deployment guides. Use this repo as your go‑to reference when working on any Flutter project.
+A personal, organized collection of Flutter resources, components, bug fixes, package usage, commands, permissions handling, services and deployment guides. Use this repo as your go-to reference when working on any Flutter project.
 
 ## 📑 Table of Contents
 
@@ -8,6 +8,8 @@ A personal, organized collection of Flutter resources, components, bug fixes, pa
 * [Bugs & Errors](#bugs--errors)
 * [Packages](#packages)
 * [Commands & Scripts](#commands--scripts)
+* [Permissions](#permissions)
+* [Services](#services)
 * [Deployment Guides](#deployment-guides)
 * [Assets & Diagrams](#assets--diagrams)
 * [Tools & Automation](#tools--automation)
@@ -18,19 +20,17 @@ A personal, organized collection of Flutter resources, components, bug fixes, pa
 
 ## Components
 
-**Path:** `components/`
+**Path:** `components/`  
+Each widget lives in its own folder:
 
-* **custom\_widgets.md**
-  Index of all custom widgets.
-* **Widget Name Folder**
+```
+components/
+└── Dropdown/
+    ├── custom_multi_selector_dropdown.dart
+    └── example.dart
+```
 
-  * `widget_name.dart`
-  * `example.dart`
-
-**Next Steps:**
-
-* List initial custom widgets with brief descriptions.
-* Add code snippets and usage examples.
+- **custom_widgets.md** – index of all custom widgets with brief descriptions and links.
 
 ---
 
@@ -38,15 +38,18 @@ A personal, organized collection of Flutter resources, components, bug fixes, pa
 
 **Path:** `bugs/`
 
-* `null_safety_error.md`
-* `widget_not_building.md`
+```
+bugs/
+├── null_safety_error.md
+└── widget_not_building.md
+```
 
 Each file contains:
 
-* Error description & logs
-* Root cause analysis
-* Step-by-step solution(s)
-* External references
+- Error description & logs
+- Root cause analysis
+- Step-by-step solutions
+- External references
 
 ---
 
@@ -54,15 +57,18 @@ Each file contains:
 
 **Path:** `packages/`
 
-* `provider.md`
-* `dio.md`
+```
+packages/
+├── provider.md
+└── dio.md
+```
 
 Each package file includes:
 
-* Installation & setup
-* API overview
-* Common pitfalls & solutions
-* Code snippets
+- Installation & setup
+- API overview
+- Common pitfalls & solutions
+- Code snippets
 
 ---
 
@@ -70,10 +76,55 @@ Each package file includes:
 
 **Path:** `commands/`
 
-* `flutter_commands.md`
-  Flutter & Dart CLI cheatsheet
-* `deployment.md`
-  Scripts and CI/CD configs for Play Store & App Store
+```
+commands/
+├── flutter_commands.md
+└── deployment.md
+```
+
+- **flutter_commands.md** – Flutter & Dart CLI cheatsheet
+- **deployment.md** – CI/CD examples and scripts for Google Play & App Store
+
+---
+
+## Permissions
+
+**Path:** `permissions/ios/bluetooth/`
+
+```
+permissions/
+└── ios/
+    └── bluetooth/
+        ├── bluetooth_permission.dart
+        └── bluetooth.md
+```
+
+- **bluetooth_permission.dart** – code to check & request Bluetooth permissions
+- **bluetooth.md** – explanation of iOS Podfile flags, Info.plist entries, and usage
+
+---
+
+## Services
+
+**Path:** `services/`
+
+```
+services/
+├── app_update/
+│   ├── app_update_manager.dart
+│   └── app_update.md
+└── socket/
+    ├── socket_service.dart
+    └── socket.md
+```
+
+- **App Update Service** (`app_update/`)
+  - `app_update_manager.dart` – singleton for forced/optional update checks
+  - `app_update.md` – setup, features, use-cases, and usage snippets
+
+- **Socket Service** (`socket/`)
+  - `socket_service.dart` – singleton wrapper around `socket_io_client`
+  - `socket.md` – initialization, event handling, reconnection logic, and examples
 
 ---
 
@@ -81,9 +132,16 @@ Each package file includes:
 
 **Path:** `deployment/`
 
-* Google Play upload checklist
-* App Store upload checklist
-* CI/CD examples (GitHub Actions, Codemagic)
+```
+deployment/
+└── google play/
+    ├── projects_before_flutter_3.29.md
+    ├── projects_started_from_flutter_3.29.md
+    └── deployment.md
+```
+
+- Google Play: keystore, versioning, AAB build & upload, GitHub Actions
+- App Store: _(coming soon in `deployment/apple_store.md`)_
 
 ---
 
@@ -91,9 +149,9 @@ Each package file includes:
 
 **Path:** `assets/diagrams/`
 
-* Architecture diagrams
-* Flowcharts
-* UI mockups
+- Architecture diagrams
+- Flowcharts
+- UI mockups
 
 ---
 
@@ -101,20 +159,22 @@ Each package file includes:
 
 **Path:** `tools/`
 
-* Scripts for auto-generating TOC
-* Folder cleanup utilities
-* Documentation build pipelines
+- Scripts to auto-generate TOC
+- Folder cleanup utilities
+- Documentation build pipelines
 
 ---
 
 ## Contributing
 
 1. Fork this repository
-2. Create a new branch for your feature or fix
-3. Add your changes and update the relevant `.md` file(s)
-4. Submit a pull request with a clear description
+2. Create a feature/fix branch
+3. Update the relevant folder and `.md` file(s)
+4. Open a pull request with a clear description
 
 ---
 
 ## License
- MIT
+
+MIT
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
