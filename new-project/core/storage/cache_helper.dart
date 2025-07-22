@@ -86,37 +86,6 @@ class AppSharedPreferences {
   static Future<void> clearAll() async {
     await sharedPreferences.clear();
   }
-
-  // static String getAppLang() {
-  //   String? lang = sharedPreferences.getString(language);
-  //
-  //   if (lang != null && lang.isNotEmpty) {
-  //     return lang;
-  //   } else {
-  //     return LanguageType.arabic.getValue();
-  //   }
-  // }
-
-  // static Future<void> changeAppLang() async {
-  //   String currentLang = getAppLang();
-  //
-  //   if (currentLang == LanguageType.arabic.getValue()) {
-  //     await sharedPreferences.setString(
-  //         language, LanguageType.arabic.getValue());
-  //   } else {
-  //     await sharedPreferences.setString(
-  //         language, LanguageType.arabic.getValue());
-  //   }
-  // }
-
-  // static Future<Locale> getLocal() async {
-  //   String currentLang = getAppLang();
-  //   if (currentLang == LanguageType.arabic.getValue()) {
-  //     return arabicLocal;
-  //   } else {
-  //     return englishLocal;
-  //   }
-  // }
 }
 
 class AppSecurePreference {

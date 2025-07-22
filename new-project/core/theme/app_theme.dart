@@ -46,17 +46,14 @@ class AppTheme {
       onPrimary: Colors.white,
       secondary: AppColors.secondary,
       onSecondary: Colors.white,
-      background: Colors.white,
-      // خلفية التطبيق
-      onBackground: Colors.black,
-      // لون النص على الخلفية
+
       surface: Colors.white,
-      // سطح البطاقات والنوافذ
+
       onSurface: Colors.black,
-      // لون النص على السطح
+
       error: Colors.red,
-      // لون الخطأ
-      onError: Colors.white, // لون النص على الخطأ
+
+      onError: Colors.white,
     ),
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: AppColors.primary,
@@ -66,10 +63,8 @@ class AppTheme {
     fontFamily: fontFamily,
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         alignment: Alignment.center,
-        // backgroundColor: primaryColor, // لون النص في TextButton
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -107,9 +102,7 @@ class AppTheme {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         ),
         backgroundColor: WidgetStateProperty.all<Color>(AppColors.primary),
-        foregroundColor: WidgetStateProperty.all<Color>(
-          Colors.white,
-        ), // لون النص في ElevatedButton
+        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
         overlayColor: WidgetStateProperty.all<Color>(Colors.black26),
       ),
     ),
@@ -123,7 +116,6 @@ class AppTheme {
     ),
   );
 
-  // تعريف الثيم الداكن (Dark Theme)
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     useMaterial3: true,
@@ -150,16 +142,14 @@ class AppTheme {
       ),
     ),
     cardTheme: CardThemeData(
-      color: const Color(0xFF1E1E1E), // لون البطاقات في Dark Mode
-      shadowColor: Colors.black.withOpacity(0.5), // ظل البطاقات
-      elevation: 4, // ارتفاع الظل
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12), // زوايا البطاقة
-      ),
+      color: const Color(0xFF1E1E1E),
+      shadowColor: Colors.black.withValues(alpha: 0.5),
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
     fontFamily: fontFamily,
     scaffoldBackgroundColor: const Color(0xFF222222),
-    // خلفية التطبيق في Dark Mode
+
     primaryColor: AppColors.primaryDark,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryDark,
@@ -168,17 +158,14 @@ class AppTheme {
       onPrimary: Colors.white,
       secondary: AppColors.secondary,
       onSecondary: Colors.white,
-      background: const Color(0xFF121212),
-      // خلفية التطبيق
-      onBackground: Colors.white,
-      // لون النص على الخلفية
+
       surface: const Color(0xFF1E1E1E),
-      // سطح البطاقات والنوافذ
+
       onSurface: Colors.white,
-      // لون النص على السطح
+
       error: const Color(0xFFCF6679),
-      // لون الخطأ
-      onError: Colors.black, // لون النص على الخطأ
+
+      onError: Colors.black,
     ),
     switchTheme: SwitchThemeData(
       trackColor: WidgetStateProperty.all<Color>(Colors.grey),
@@ -193,10 +180,7 @@ class AppTheme {
         fontSize: 25,
       ),
       border: OutlineInputBorder(
-        borderSide: const BorderSide(
-          width: 1,
-          color: AppColors.primaryDark, // لون الحدود في الثيم الداكن
-        ),
+        borderSide: const BorderSide(width: 1, color: AppColors.primaryDark),
         borderRadius: BorderRadius.circular(15.0),
       ),
       focusedBorder: OutlineInputBorder(
@@ -208,7 +192,7 @@ class AppTheme {
         borderRadius: BorderRadius.circular(15.0),
       ),
       fillColor: const Color(0xFF333333),
-      // لون خلفية الحقول في Dark Mode
+
       filled: true,
       hintStyle: const TextStyle(color: Color(0xff9E9E9E)),
       labelStyle: const TextStyle(color: Color(0xff9E9E9E)),
@@ -219,9 +203,7 @@ class AppTheme {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         ),
         backgroundColor: WidgetStateProperty.all<Color>(AppColors.primaryDark),
-        foregroundColor: WidgetStateProperty.all<Color>(
-          Colors.white,
-        ), // لون النص في ElevatedButton
+        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
         overlayColor: WidgetStateProperty.all<Color>(Colors.black26),
       ),
     ),
@@ -231,7 +213,7 @@ class AppTheme {
       shape: CircleBorder(),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor: Color(0xFF333333), // لون الـ BottomSheet في Dark Mode
+      backgroundColor: Color(0xFF333333),
     ),
   );
 }

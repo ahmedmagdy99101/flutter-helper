@@ -1,7 +1,8 @@
 class ApiConstants {
-  static const String baseUrl = 'https://api.live.com';
-  // static const String baseUrl = 'https://api.dev.com';
-  static const String apiVersion = '/v1';
+  static const String baseUrl =
+      'https://api.live.com'; // ? Update with your live API URL
+  // static const String baseUrl = 'https://api.dev.com'; // ? Update with your development API URL
+  // static const String apiVersion = '/v1';
 
   // Headers
   static const String contentType = 'Content-Type';

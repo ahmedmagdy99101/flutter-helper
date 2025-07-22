@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../../core/api/end_points.dart';
-import '../../../core/api/status_code.dart';
-import '../../../core/constants/app_strings.dart';
 import '../../../core/routing/app_router.dart';
 import '../../../core/routing/routes.dart';
 import '../../../core/storage/cache_helper.dart';
+import '../constants/api_constants.dart';
+import '../constants/storage_constants.dart';
+import 'status_code.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio dio;
@@ -19,7 +18,7 @@ class AppInterceptors extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     String? authToken = await AppSecurePreference.getString(
-      key: AppStrings.accessToken,
+      key: StorageConstants.accessToken,
     );
     if (authToken != null && authToken.isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $authToken';
@@ -38,10 +37,10 @@ class AppInterceptors extends Interceptor {
     debugPrint("err.response?.statusCode ${err.response?.statusCode}");
     if (err.response?.statusCode == StatusCode.unauthorized) {
       String? accessToken = await AppSecurePreference.getString(
-        key: AppStrings.accessToken,
+        key: StorageConstants.accessToken,
       );
       String? refreshToken = AppSharedPreferences.getString(
-        key: AppStrings.refreshToken,
+        key: StorageConstants.refreshToken,
       );
       debugPrint(accessToken);
       debugPrint(refreshToken);
@@ -55,11 +54,11 @@ class AppInterceptors extends Interceptor {
 
               await AppSecurePreference.setString(
                 value: token,
-                key: AppStrings.accessToken,
+                key: StorageConstants.accessToken,
               );
             });
         accessToken = await AppSecurePreference.getString(
-          key: AppStrings.accessToken,
+          key: StorageConstants.accessToken,
         );
         err.requestOptions.headers['Authorization'] = 'Bearer $accessToken';
         return handler.resolve(await dio.fetch(err.requestOptions));
